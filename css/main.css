@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+/* 全体のリセットと基本設定 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background-color:#008080;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* height ではなく min-height に変更 */
+    padding: 20px;     /* 上下に余白を追加してスマホで見やすくする */}
+
+/* ログインカード（白い枠）のデザイン */
+.login-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    color: #333;
+}
+
+/* 入力フォームのグループ */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #666;
+    font-size: 14px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+/* 入力中の枠線の色変更 */
+.form-group input:focus {
+    border-color: #4a90e2;
+    outline: none;
+}
+
+/* ログインボタン */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #357abd;
+}
+
+/* パスワード忘れなどのリンク */
+.links {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.links a {
+    color: #4a90e2;
+    text-decoration: none;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+.description {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
