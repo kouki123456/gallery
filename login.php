@@ -17,3 +17,10 @@ $pass_hash = password_hash($pass, PASSWORD_DEFAULT);
 //DBからユーザーidとハッシュ化されたパスワードを取得
 $sql = "SELECT 1 FROM user WHERE id = '{$id}' AND pass = '{$pass}'"; //DB作ってからここ変えた方がいいかも
 $result = mysqli_query($link, $sql);
+if (mysqli_num_rows($result) > 0){
+    $_SESSION["loginStatus"] = "loginOk";
+    header("location: ./top.php");
+} else {
+    $_SESSION["loginerr"] = "IDまたはパスワードが違います";
+    header("location: ./login.html");
+}
