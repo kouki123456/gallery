@@ -98,3 +98,239 @@ body {
     margin-bottom: 24px;
     line-height: 1.5;
 }
+.app-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1000px; /* ログイン画面より広くする */
+    margin: 20px auto; /* 中央揃え */
+}
+
+/* ヘッダー周り */
+.gallery-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.gallery-header h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.back-link {
+    color: #4a90e2;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* 日付タイトル */
+.date-title {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.date-section {
+    margin-bottom: 40px;
+}
+
+/* 写真を並べるグリッド設定 */
+.photo-grid {
+    display: grid;
+    /* 画面幅に合わせて自動で列数を調整（最低幅200px） */
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px; /* 写真と写真の隙間 */
+}
+
+/* 写真の枠 */
+.photo-item {
+    width: 100%;
+    aspect-ratio: 4 / 3; /* 横縦比を固定（4:3） */
+    overflow: hidden;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #eee;
+}
+
+/* 画像本体の設定 */
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 枠に合わせてトリミングして埋める */
+    transition: transform 0.3s ease;
+}
+
+/* マウスを乗せたときに少し拡大する演出 */
+.photo-item:hover img {
+    transform: scale(1.05);
+}
+.month-nav {
+    display: flex;
+    gap: 10px;           /* ボタン同士の間隔 */
+    margin-bottom: 30px; /* 下の要素との間隔 */
+    overflow-x: auto;    /* スマホでボタンが多いときは横スクロール */
+    white-space: nowrap;
+    padding-bottom: 5px;
+}
+
+.month-nav a {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #f0f2f5;
+    color: #333;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.month-nav a:hover {
+    background-color: #e4e6eb;
+    color: #4a90e2;
+}
+
+/* 月ごとの大きな見出し */
+.month-heading {
+    font-size: 20px;
+    color: #333;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    border-left: 5px solid #4a90e2; /* 左側に青い線をつける */
+}
+
+/* 月ごとの区切り線 */
+.divider {
+    border: none;
+    border-top: 1px dashed #ccc;
+    margin: 40px 0;
+}
+
+/* スクロールしたときにヘッダーの下に隠れないようにする調整（任意） */
+html {
+    scroll-behavior: smooth; /* スルスルっと動くアニメーション */
+}
+.modal {
+    display: none; /* 初期状態は非表示 */
+    position: fixed; /* スクロールしても画面に固定 */
+    z-index: 1000;   /* 他の要素より前面に出す */
+    padding-top: 50px; /* 上に少し隙間を空ける */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* 画像が大きすぎる場合はスクロール */
+    background-color: rgba(0, 0, 0, 0.8); /* 背景色（80%の透明度の黒） */
+}
+
+/* 拡大表示される画像本体 */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 800px; /* 最大幅を制限 */
+    max-height: 80vh; /* 画面の高さの80%まで */
+    object-fit: contain; /* 縦横比を崩さず収める */
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* 閉じるボタン (×) */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 1001; /* 画像より手前 */
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* アニメーション（ふわっと表示） */
+.modal-content {  
+  animation-name: zoom;
+  animation-duration: 0.3s;
+}
+
+@keyframes zoom {
+  from {transform:scale(0.9); opacity:0} 
+  to {transform:scale(1); opacity:1}
+}
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%; /* 画面の高さの半分 */
+    width: auto;
+    padding: 16px;
+    margin-top: -50px; /* 真ん中に合わせるための調整 */
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.3s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none; /* 文字選択されないようにする */
+    z-index: 1002; /* 画像よりさらに手前 */
+}
+
+/* 「次へ」ボタンは右側に配置 */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* 「前へ」ボタンは左側に配置 */
+.prev {
+    left: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+/* ホバー時の背景色 */
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.fab-btn {
+    position: fixed;   /* 画面に固定 */
+    bottom: 30px;      /* 下からの距離 */
+    right: 30px;       /* 右からの距離 */
+    width: 60px;       /* ボタンの幅 */
+    height: 60px;      /* ボタンの高さ */
+    background-color: #4a90e2; /* 青色 */
+    color: white;
+    border-radius: 50%; /* 丸くする */
+    text-align: center;
+    line-height: 60px; /* 文字を上下中央に */
+    font-size: 30px;   /* プラス記号の大きさ */
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* 影をつけて浮かせる */
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    z-index: 900; /* 写真より手前、モーダルより奥 */
+}
+
+/* ホバー時の動き */
+.fab-btn:hover {
+    background-color: #357abd;
+    transform: scale(1.1); /* 少し大きくする */
+}
+
+/* 本来のファイル選択ボタンは隠す */
+#file-upload {
+    display: none;
+}
+確認してみまし

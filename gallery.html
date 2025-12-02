@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>フォトフォルダ</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <header class="gallery-header">
+            <h2>フォトフォルダ</h2>
+            <a href="login.html" class="back-link">ログアウト</a>
+        </header>
+
+        <nav class="month-nav">
+            <a href="#month-11">11月</a>
+            <a href="#month-10">10月</a>
+            <a href="#month-9">9月</a>
+        </nav>
+
+        <section id="month-11" class="month-group">
+            <h2 class="month-heading">2025年 11月</h2>
+
+            <div class="date-section">
+                <h3 class="date-title">11月21日(金)</h3>
+                <div class="photo-grid">
+                    <div class="photo-item"><img src="png/a.png"></div>
+                    <div class="photo-item"><img src="png/i.png"></div>
+                    <div class="photo-item"><img src="png/u.png"></div>
+                </div>
+            </div>
+
+            <div class="date-section">
+                <h3 class="date-title">11月15日(土)</h3>
+                <div class="photo-grid">
+                    <div class="photo-item"><img src="https://via.placeholder.com/300x200?text=11/15-A" alt="写真"></div>
+                    <div class="photo-item"><img src="https://via.placeholder.com/300x200?text=11/15-B" alt="写真"></div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="divider"> <section id="month-10" class="month-group">
+            <h2 class="month-heading">2025年 10月</h2>
+
+            <div class="date-section">
+                <h3 class="date-title">10月31日(金) ハロウィン</h3>
+                <div class="photo-grid">
+                    <div class="photo-item"><img src="https://via.placeholder.com/300x200?text=10/31-A" alt="写真"></div>
+                    <div class="photo-item"><img src="https://via.placeholder.com/300x200?text=10/31-B" alt="写真"></div>
+                    <div class="photo-item"><img src="https://via.placeholder.com/300x200?text=10/31-C" alt="写真"></div>
+                    <div class="photo-item"><img src="https://via.placeholder.com/300x200?text=10/31-D" alt="写真"></div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <section id="month-9" class="month-group">
+            <h2 class="month-heading">2025年 9月</h2>
+
+            <div class="date-section">
+                <h3 class="date-title">9月10日(水)</h3>
+                <div class="photo-grid">
+                    <div class="photo-item"><img src="https://via.placeholder.com/300x200?text=9/10-A" alt="写真"></div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        
+        <a class="prev" id="prevBtn">&#10094;</a>
+        <a class="next" id="nextBtn">&#10095;</a>
+
+        <img class="modal-content" id="expandedImg">
+    </div>
+
+    <script src="script.js"></script>
+    <div class="upload-container">
+        <label for="file-upload" class="fab-btn">
+            ＋
+        </label>
+        <input id="file-upload" type="file" accept="image/*" multiple>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
